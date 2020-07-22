@@ -1,9 +1,9 @@
 <div id="main">
+  <ion-button expand="block" shape="round" color="success" (click)="generate()">Générer la liste de course</ion-button>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let item of items">
       <ion-checkbox></ion-checkbox>
-      <ion-label style="margin-left: 20px;">Oeuf</ion-label>
-      <ion-label class="end">1</ion-label>
+      <ion-label style="margin-left: 20px;">{{item.name}}</ion-label>
     </ion-item>
   </ion-list>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular'
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-shop',
@@ -7,8 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopComponent implements OnInit {
 
-  constructor() { }
+  items = [];
+  constructor(private db: Storage, private alertController: AlertController) { }
 
-  ngOnInit() {}
+  ngOnInit() { 
+    this.generate()
+  }
 
+  async generate(){
+    this.items = []
+    await this.db.forEach(item =>{
+      if(item.count == 0){
+        this.items.push(item)
+      }
+    })
+  }
 }
