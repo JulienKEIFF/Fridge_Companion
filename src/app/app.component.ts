@@ -18,6 +18,7 @@ export class AppComponent {
   ) {
     this.initializeApp();
     this.openMenu();
+    this.theme();
   }
 
   openMenu(){
@@ -31,5 +32,9 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  theme(){
+    
   }
 }

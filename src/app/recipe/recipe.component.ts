@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { ModalController } from '@ionic/angular';
+import { AddRecipePage } from '../add-recipe/add-recipe.page'
 
 @Component({
   selector: 'app-recipe',
@@ -7,9 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeComponent implements OnInit {
 
-  public cards = ['lol', 'enorme']
-  constructor() { }
+  private recipeDb: Storage;
+  private fridgeDb: Storage;
 
-  ngOnInit() {}
+  recipeList = [];
+  fridgeList = [];
+
+  recipes = [{name: 'Quiche Lorraine', ingredient: ['oeuf', 'farine', 'lait']}];
+
+  constructor(private modalController: ModalController) { }
+
+  async ngOnInit() {
+    await this.openFridgeDb();
+    await this.openRecipeDb();
+  }
+
+  async openFridgeDb(){
+    this.fridgeDb = new Storage({
+      name: 'fridge_db',
+      storeName: 'fridge',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    })
+  }
+  async openRecipeDb(){
+    this.recipeDb = new Storage({
+      name: 'fridge_db',
+      storeName: 'recipe',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    })
+  }
+
+  async addRecipe(){
+    const modal = await this.modalController.create({
+      component: AddRecipePage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
 
 }

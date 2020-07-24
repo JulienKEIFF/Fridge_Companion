@@ -1,12 +1,15 @@
 <div id="main">
+
   <ion-list>
     <ion-item>
-      <ion-label>Option 1</ion-label>
-      <ion-toggle></ion-toggle>
+      <ion-label>Theme noir</ion-label>
+      <ion-toggle (ionChange)="theme($event)" checked="{{blackTheme}}"></ion-toggle>
     </ion-item>
-    <ion-item>
+    <!-- <ion-item>
       <ion-label>Option 2</ion-label>
       <ion-toggle checked></ion-toggle>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
+
+  <ion-button (click)="clear()">Vider la mémoire</ion-button>
 </div>

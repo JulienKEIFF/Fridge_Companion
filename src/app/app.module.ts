@@ -10,18 +10,20 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FridgeComponent} from './fridge/fridge.component';
-import {ShopComponent} from './shop/shop.component'
+import { FridgeComponent } from './fridge/fridge.component';
+import { ShopComponent } from './shop/shop.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 @NgModule({
-  declarations: [AppComponent, FridgeComponent, ShopComponent],
+  declarations: [AppComponent, FridgeComponent, ShopComponent, RecipeComponent],
   entryComponents: [],
   imports: [
     CommonModule,
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
-    IonicStorageModule.forRoot({name: 'fridge_db', driverOrder: ['indexeddb', 'sqlite', 'websql']})],
+    IonicStorageModule.forRoot({name: 'fridge_db', storeName: 'fridge', driverOrder: ['indexeddb', 'sqlite', 'websql']})
+  ],
   providers: [
     StatusBar,
     SplashScreen,

@@ -7,6 +7,8 @@ import {RecipeComponent} from './recipe/recipe.component';
 import {ShopComponent} from './shop/shop.component';
 import {SettingComponent} from './setting/setting.component';
 
+import { AddRecipePage } from './add-recipe/add-recipe.page'
+
 const routes: Routes = [
   {
     path: '',
@@ -27,6 +29,10 @@ const routes: Routes = [
   {
     path: 'setting',
     component: SettingComponent
+  },
+  {
+    path: 'add-recipe',
+    component: AddRecipePage
   }
 ];
 
