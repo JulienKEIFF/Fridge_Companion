@@ -29,14 +29,14 @@ export class RecipeComponent implements OnInit {
     this.fridgeDb = new Storage({
       name: 'fridge_db',
       storeName: 'fridge',
-      driverOrder: ['indexeddb', 'sqlite', 'websql']
+      driverOrder: ['indexeddb']
     })
   }
   async openRecipeDb(){
     this.recipeDb = new Storage({
       name: 'fridge_db',
       storeName: 'recipe',
-      driverOrder: ['indexeddb', 'sqlite', 'websql']
+      driverOrder: ['indexeddb']
     })
   }
 
