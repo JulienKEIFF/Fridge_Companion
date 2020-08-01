@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Storage } from '@ionic/storage'
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-add-recipe',
@@ -59,6 +59,7 @@ export class AddRecipePage implements OnInit {
   }
 
   async validateRecipe(){
+    if(this.recipeName == "" || this.recipeName == undefined || this.recipeIngredients == []) return this.dismiss()
     this.recipe = {
       name: this.recipeName,
       ingredient: this.recipeIngredients

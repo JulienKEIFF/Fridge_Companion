@@ -11,27 +11,15 @@ import { AddRecipePage } from '../add-recipe/add-recipe.page'
 export class RecipeComponent implements OnInit {
 
   private recipeDb: Storage;
-  private fridgeDb: Storage;
-
   recipeList = [];
-  fridgeList = [];
-
-  recipes = [{name: 'Quiche Lorraine', ingredient: ['oeuf', 'farine', 'lait', 'lardon', 'pâte brisée', 'gruyere rapé']}];
 
   constructor(private modalController: ModalController) { }
 
   async ngOnInit() {
-    await this.openFridgeDb();
     await this.openRecipeDb();
+    await this.getRecipe();
   }
 
-  async openFridgeDb(){
-    this.fridgeDb = new Storage({
-      name: 'fridge_db',
-      storeName: 'fridge',
-      driverOrder: ['indexeddb']
-    })
-  }
   async openRecipeDb(){
     this.recipeDb = new Storage({
       name: 'fridge_db',
@@ -39,13 +27,23 @@ export class RecipeComponent implements OnInit {
       driverOrder: ['indexeddb']
     })
   }
+  async getRecipe(){
+    this.recipeDb.forEach(recipe =>{
+      this.recipeList.push(recipe)
+    })
+    console.log(this.recipeList)
+  }
 
   async addRecipe(){
     const modal = await this.modalController.create({
       component: AddRecipePage,
       cssClass: 'my-custom-class'
     });
-    return await modal.present();
+    await modal.present();
+    await modal.onWillDismiss().then(_=>{
+      this.recipeList = [];
+      this.ngOnInit()
+    })
   }
 
 }
