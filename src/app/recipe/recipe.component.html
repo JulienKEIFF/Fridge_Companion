@@ -6,8 +6,10 @@
         <ion-icon name="ellipsis-vertical-outline"></ion-icon>
       </ion-button>
     </ion-card-header>
-    <ion-card-content *ngFor="let ingredient of item.ingredient">
-      {{ingredient}}
+    <ion-card-content>
+      <ul>
+        <li *ngFor="let ingredient of item.ingredient">{{ ingredient | titlecase }}</li>
+      </ul>
     </ion-card-content>
   </ion-card>
 

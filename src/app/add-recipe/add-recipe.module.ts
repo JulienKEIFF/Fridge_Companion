@@ -7,6 +7,7 @@ import { AddRecipePage } from './add-recipe.page';
 
 @NgModule({
   imports: [
+    AddRecipePage,
     CommonModule,
     FormsModule,
     IonicModule,

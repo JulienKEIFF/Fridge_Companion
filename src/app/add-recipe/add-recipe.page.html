@@ -10,16 +10,15 @@
 <ion-content>
   <ion-item>
     <ion-label position="floating">Nom de la recette</ion-label>
-    <ion-input></ion-input>
+    <ion-input (ionChange)="setRecipeName($event)"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>Liste des ingredients</ion-label>
-    <ion-select multiple="true">
-      <template *ngFor="let item of items">
-        <ion-option>{{item.name}}</ion-option>      
-      </template>
+    <ion-select multiple="true" (ionChange)=setRecipeIngredients($event)>
+      <ion-select-option *ngFor="let item of items">{{item.name}}</ion-select-option>      
     </ion-select>
   </ion-item>
-  {{items}}
 </ion-content>
+
+<ion-button (click)="validateRecipe()">Fini</ion-button>

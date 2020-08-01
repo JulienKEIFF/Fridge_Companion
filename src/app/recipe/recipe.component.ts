@@ -16,7 +16,7 @@ export class RecipeComponent implements OnInit {
   recipeList = [];
   fridgeList = [];
 
-  recipes = [{name: 'Quiche Lorraine', ingredient: ['oeuf', 'farine', 'lait']}];
+  recipes = [{name: 'Quiche Lorraine', ingredient: ['oeuf', 'farine', 'lait', 'lardon', 'pâte brisée', 'gruyere rapé']}];
 
   constructor(private modalController: ModalController) { }
 
