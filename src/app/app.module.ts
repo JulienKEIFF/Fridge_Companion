@@ -10,6 +10,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component'
 import { FridgeComponent } from './fridge/fridge.component';
 import { ShopComponent } from './shop/shop.component';
 import { RecipeComponent } from './recipe/recipe.component';
@@ -17,7 +18,7 @@ import { AddRecipePage } from './add-recipe/add-recipe.page';
 import { RecipeFullPage } from './recipe-full/recipe-full.page';
 
 @NgModule({
-  declarations: [AppComponent, FridgeComponent, ShopComponent, RecipeComponent, AddRecipePage, RecipeFullPage],
+  declarations: [AppComponent, HomeComponent, FridgeComponent, ShopComponent, RecipeComponent, AddRecipePage, RecipeFullPage],
   entryComponents: [],
   imports: [
     CommonModule,
