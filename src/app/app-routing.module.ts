@@ -7,7 +7,8 @@ import {RecipeComponent} from './recipe/recipe.component';
 import {ShopComponent} from './shop/shop.component';
 import {SettingComponent} from './setting/setting.component';
 
-import { AddRecipePage } from './add-recipe/add-recipe.page'
+import { AddRecipePage } from './add-recipe/add-recipe.page';
+import { RecipeFullPage } from './recipe-full/recipe-full.page';
 
 const routes: Routes = [
   {
@@ -36,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: 'recipe-full',
-    loadChildren: () => import('./recipe-full/recipe-full.module').then( m => m.RecipeFullPageModule)
+    component: RecipeFullPage
   }
 ];
 
