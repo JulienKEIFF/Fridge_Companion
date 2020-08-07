@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { ModalController } from '@ionic/angular';
-import { AddRecipePage } from '../add-recipe/add-recipe.page'
+
+import { AddRecipePage } from '../add-recipe/add-recipe.page';
+import { RecipeFullPage } from '../recipe-full/recipe-full.page';
 
 @Component({
   selector: 'app-recipe',
@@ -31,19 +33,25 @@ export class RecipeComponent implements OnInit {
     this.recipeDb.forEach(recipe =>{
       this.recipeList.push(recipe)
     })
-    console.log(this.recipeList)
   }
 
   async addRecipe(){
     const modal = await this.modalController.create({
       component: AddRecipePage,
-      cssClass: 'my-custom-class'
     });
     await modal.present();
     await modal.onWillDismiss().then(_=>{
       this.recipeList = [];
       this.ngOnInit()
     })
+  }
+
+  async recipeDescrModal(item){
+    const modal = await this.modalController.create({
+      component: RecipeFullPage,
+      componentProps: {item: item}
+    })
+    await modal.present()
   }
 
 }

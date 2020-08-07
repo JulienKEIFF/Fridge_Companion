@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'add-recipe',
     component: AddRecipePage
+  },
+  {
+    path: 'recipe-full',
+    loadChildren: () => import('./recipe-full/recipe-full.module').then( m => m.RecipeFullPageModule)
   }
 ];
 

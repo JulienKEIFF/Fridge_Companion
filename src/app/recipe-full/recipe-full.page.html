@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{item.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">annuler</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="block">
+    <div class="title">
+      <ion-icon name="restaurant-outline"></ion-icon>
+      <h1>Ingrédients</h1>
+    </div>
+    <br>
+    <ul>
+      <li *ngFor="let ingr of item.ingredient">{{ingr}}</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="title">
+      <ion-icon name="reader-outline"></ion-icon>
+      <h1>Etapes</h1>
+    </div>
+    <p style="white-space: pre-line;">{{item.descr}}</p>
+  </div>
+</ion-content>

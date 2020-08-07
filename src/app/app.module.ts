@@ -13,10 +13,11 @@ import { AppComponent } from './app.component';
 import { FridgeComponent } from './fridge/fridge.component';
 import { ShopComponent } from './shop/shop.component';
 import { RecipeComponent } from './recipe/recipe.component';
-import { AddRecipePage } from './add-recipe/add-recipe.page'
+import { AddRecipePage } from './add-recipe/add-recipe.page';
+import { RecipeFullPage } from './recipe-full/recipe-full.page';
 
 @NgModule({
-  declarations: [AppComponent, FridgeComponent, ShopComponent, RecipeComponent, AddRecipePage],
+  declarations: [AppComponent, FridgeComponent, ShopComponent, RecipeComponent, AddRecipePage, RecipeFullPage],
   entryComponents: [],
   imports: [
     CommonModule,

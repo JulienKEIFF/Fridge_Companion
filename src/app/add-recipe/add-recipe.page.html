@@ -19,6 +19,11 @@
       <ion-select-option *ngFor="let item of items">{{item.name}}</ion-select-option>      
     </ion-select>
   </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Etapes</ion-label>
+    <ion-textarea autoGrow required (ionChange)="setDescription($event)"></ion-textarea>
+  </ion-item>
 </ion-content>
 
 <ion-button (click)="validateRecipe()">Fini</ion-button>

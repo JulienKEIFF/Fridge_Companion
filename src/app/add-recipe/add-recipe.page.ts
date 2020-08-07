@@ -14,6 +14,7 @@ export class AddRecipePage implements OnInit {
 
   recipeName: string;
   recipeIngredients = [];
+  recipeDescr: string;
   recipe = {};
 
   items = [];
@@ -58,11 +59,16 @@ export class AddRecipePage implements OnInit {
     this.recipeIngredients = event.detail.value
   }
 
+  setDescription(event){
+    this.recipeDescr = event.detail.value;
+  }
+
   async validateRecipe(){
     if(this.recipeName == "" || this.recipeName == undefined || this.recipeIngredients == []) return this.dismiss()
     this.recipe = {
       name: this.recipeName,
-      ingredient: this.recipeIngredients
+      ingredient: this.recipeIngredients,
+      descr: this.recipeDescr
     }
     await this.dbRecipe.set(this.recipeName, this.recipe)
     this.modalController.dismiss({

@@ -1,5 +1,5 @@
 <div id="main">
-  <ion-card *ngFor="let item of recipeList">
+  <ion-card *ngFor="let item of recipeList" (click)="recipeDescrModal(item)">
     <ion-card-header>
       <ion-card-title>{{item.name}}</ion-card-title>
       <ion-button slot="icon-only">
