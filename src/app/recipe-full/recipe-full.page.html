@@ -27,5 +27,5 @@
     <p style="white-space: pre-line;">{{item.descr}}</p>
   </div>
 
-  <ion-button color="warning" expand="full" fill="outline" (click)="delete()">Suprimer la recette</ion-button>
+  <ion-button *ngIf="viewButton" color="warning" expand="full" fill="outline" (click)="delete()">Suprimer la recette</ion-button>
 </ion-content>

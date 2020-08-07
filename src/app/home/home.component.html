@@ -1,12 +1,11 @@
 <div id="main">
   <h1><ion-icon name="bulb-outline"></ion-icon>Idée de repas</h1>
-  <ion-card *ngFor="let recipe of recipeList">
+  <ion-card *ngFor="let recipe of recipeList" (click)="viewRecipe(recipe)">
     <ion-card-header>
       <ion-card-title>{{recipe.name}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      {{recipe.info}}
     </ion-card-content>
   </ion-card>
 
@@ -14,6 +13,7 @@
 
   <h1><ion-icon name="cart-outline"></ion-icon>Des courses rapides</h1>
   <ul>
+    <li>test</li>
     <li *ngFor="let ingr of fridgeList">{{ingr.name}}</li>
   </ul>
 </div>

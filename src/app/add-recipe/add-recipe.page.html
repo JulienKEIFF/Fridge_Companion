@@ -21,6 +21,11 @@
   </ion-item>
 
   <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea autoGrow required (ionChange)="setDesc($event)"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
     <ion-label position="floating">Etapes</ion-label>
     <ion-textarea autoGrow required (ionChange)="setDescription($event)"></ion-textarea>
   </ion-item>

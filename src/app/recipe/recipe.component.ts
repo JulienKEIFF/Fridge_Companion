@@ -49,7 +49,10 @@ export class RecipeComponent implements OnInit {
   async recipeDescrModal(item){
     const modal = await this.modalController.create({
       component: RecipeFullPage,
-      componentProps: {item: item}
+      componentProps: {
+        item: item,
+        viewButton: true
+      }
     })
     await modal.present()
     await modal.onWillDismiss().then(_=>{

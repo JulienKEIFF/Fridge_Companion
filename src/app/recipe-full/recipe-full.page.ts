@@ -11,7 +11,8 @@ import { Storage } from '@ionic/storage';
 export class RecipeFullPage implements OnInit {
 
   @Input() item;
-  recipeDb: Storage
+  @Input() viewButton;
+  recipeDb: Storage;
 
   constructor(private modalController: ModalController, private alertController: AlertController, private db: Storage) { }
 

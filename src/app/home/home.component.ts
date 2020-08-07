@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage'
+import { Storage } from '@ionic/storage';
+import { ModalController } from '@ionic/angular';
+
+import { RecipeFullPage } from '../recipe-full/recipe-full.page';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +17,7 @@ export class HomeComponent implements OnInit {
   recipeList = [];
   fridgeList = [];
 
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   async ngOnInit() {
     await this.openRecipeDb();
@@ -54,5 +57,16 @@ export class HomeComponent implements OnInit {
         this.fridgeList.push(ingr)
       }
     })
+  }
+
+  async viewRecipe(recipe){
+    const modal = await this.modalController.create({
+      component: RecipeFullPage,
+      componentProps: {
+        item: recipe,
+        viewButton: false
+      }
+    })
+    await modal.present()
   }
 }
