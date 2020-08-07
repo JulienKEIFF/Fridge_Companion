@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-recipe-full',
@@ -8,9 +10,10 @@ import { ModalController } from '@ionic/angular';
 })
 export class RecipeFullPage implements OnInit {
 
-  @Input() item
+  @Input() item;
+  recipeDb: Storage
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private alertController: AlertController, private db: Storage) { }
 
   ngOnInit() {
   }
@@ -19,5 +22,29 @@ export class RecipeFullPage implements OnInit {
     this.modalController.dismiss({
       'dismissed': true
     });
+  }
+
+  async delete(){
+    const alert = await this.alertController.create({
+      header: 'Attention',
+      message: 'Etes-vous sur de vouloir suprimer cette recette ?',
+      buttons: [{
+        text: 'Oui',
+        handler: async _=>{
+          this.recipeDb = await new Storage({
+            name: 'fridge_db',
+            storeName: 'recipe',
+            driverOrder: ['indexeddb']
+          })
+          this.recipeDb.remove(this.item.name)
+          this.dismiss()
+        }
+      },
+    {
+      text: 'Annuler'
+    }]
+    });
+
+    await alert.present();
   }
 }

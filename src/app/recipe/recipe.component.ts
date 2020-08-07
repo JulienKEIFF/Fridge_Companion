@@ -52,6 +52,10 @@ export class RecipeComponent implements OnInit {
       componentProps: {item: item}
     })
     await modal.present()
+    await modal.onWillDismiss().then(_=>{
+      this.recipeList = [];
+      this.ngOnInit()
+    })
   }
 
 }
